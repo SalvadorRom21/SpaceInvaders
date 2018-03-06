@@ -3,6 +3,3 @@
 #Setting up the Screen
 
 print ("Testing branch workings")
-print ("Testing branch working")
-print ("testing branch management 3")
-print ("tetsing branch 5")
