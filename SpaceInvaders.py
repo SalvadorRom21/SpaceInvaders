@@ -35,6 +35,15 @@ player.speed(0)											#speed as fast as possible
 player.setposition(0,-250)								#set the position of the turtle
 player.setheading(90)									#sets oriantation of player turtle to face up
 
+#Creating the enemy turtle 
+enemy = trutle.Turtle()									#create enemy Turtle
+enemy.color("red")										#set color of the enemy
+enemy.shape("circle")									#set shape of the enemy
+enemy.penup()											#not drawing anything so pen up
+enemy.speed(0)											#speed as fast since its a game								#posotion would be in Q1
+enemy.setpostition (-200, 250)							#set posotion of the enemy to Q1
+
+
 playerspeed = 15
 #setting up player movement
 def move_left():										#moving player left 								
@@ -48,13 +57,12 @@ def move_left():										#moving player left
 	
 def move_right():										#moving player right 
 	x = player.xcor()									#getting player x coordinate
-	x += x-playerspeed									#setting player speed x = x + playerspeed
+	x += playerspeed									#setting player speed x = x + playerspeed
 
 	if x > 280:											#boundry checking for right side						
 		x = 280
 
 	player.setx(x)										#setting player position to x 
-
 
 #create keyboard binding 
 turtle.listen()											#listen for keyinputs 
