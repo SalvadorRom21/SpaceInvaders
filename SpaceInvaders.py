@@ -42,7 +42,7 @@ enemy.shape("circle")									#set shape of the enemy
 enemy.penup()											#not drawing anything so pen up
 enemy.speed(0)											#speed as fast since its a game	
 enemy.setposition (-200, 250)							#set posotion of the enemy to Q1
-
+enemyspeed = 2											#setting movement speed of enemy 
 
 playerspeed = 15
 #setting up player movement
@@ -76,5 +76,5 @@ turtle.onkey(move_right, "Right")						#calls move_right when right key is press
 
 
 #raw_input swtiched to input for python version 3.6.3
-delay = input ("Press enter to finish.") 
+delay = input ("Press enter to finish.") 				#stops the window from closing
 
