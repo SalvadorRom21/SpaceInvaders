@@ -83,7 +83,7 @@ def move_right():										#moving player right
 
 	player.setx(x)										#setting player position to x 
 
-def fire_bullet();
+def fire_bullet():
 	global bulletstate
 
 	x = player.xcor()
