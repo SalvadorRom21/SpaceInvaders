@@ -45,14 +45,14 @@ enemy.setposition (-200, 250)							#set posotion of the enemy to Q1
 enemyspeed = 2											#setting movement speed of enemy 
 
 #Creating player bullet
-bullet = turtle.Turtle()
-bullet.color("yellow")
-bullet.shape("triangle")
-bullet.penup()
-bullet.speed(0)
-bullet.setheading(90)
-bullet.shapesize(0.5,0.5)
-bullet.hideturtle()
+bullet = turtle.Turtle()								#create turtle bullet
+bullet.color("yellow")									#give it yellow color 
+bullet.shape("triangle")								#set its shape 
+bullet.penup()											#not drawing line so penup
+bullet.speed(0)											#speed of the bullet 0 for fastest
+bullet.setheading(90)									#direction of bullet
+bullet.shapesize(0.5,0.5)								#scale down by 1/2 
+bullet.hideturtle()										#hiding turtle before we need it
 
 bulletspeed = 20 
 
@@ -60,7 +60,7 @@ bulletspeed = 20
 #ready - raedy to fire
 #fire - bullet is moving 
 
-bulletstate = "ready"
+bulletstate = "ready"									#the state of the bullet 
 
 
 playerspeed = 15
@@ -85,11 +85,14 @@ def move_right():										#moving player right
 
 def fire_bullet():
 	global bulletstate
+	
+	if bulletstate == "ready":							#after fire change state to fire
+		bulletstate = "fire"
 
-	x = player.xcor()
-	y = player.ycor() + 10
-	bullet.setposition(x,y)
-	bullet.showturtle()
+		x = player.xcor()								#x coordinate of player
+		y = player.ycor() + 10							#y cordinate plus 10
+		bullet.setposition(x,y)		
+		bullet.showturtle()								#turle appearss
 
 #create keyboard binding 
 turtle.listen()											#listen for keyinputs 
@@ -118,7 +121,14 @@ while True:
 		y -=40
 		enemyspeed *= -1								#mutipply -2*(-1) to mae it positive
 		enemy.sety(y)
+	if bulletstate == "fire":
+		y = bullet.ycor()								#getting bulet y core value
+		y += bulletspeed								#adding bullet speed to value
+		bullet.sety(y)									#setting y coordinate of bullet
 
+	if bullet.ycor() > 275:
+		bullet.hideturtle()
+		bulletstate = "ready"
 #raw_input swtiched to input for python version 3.6.3
 delay = input ("Press enter to finish.") 				#stops the window from closing
 
