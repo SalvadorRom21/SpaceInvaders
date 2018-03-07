@@ -76,8 +76,8 @@ while True:
 	x = enemy.xcor()									#getting x position of the enemy
 	x += enemyspeed										#moving the enemy right 
 
-		if x > 280:										#boundry checking
-			x = 280										#enemy will stop at the edge
+	if x > 280:											#setting boundry of the enemy
+		x = 280											#stop at the endge
 
 	enemy.setx(x)										#set enemy new position to x 
 
