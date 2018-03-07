@@ -95,7 +95,7 @@ def fire_bullet():
 turtle.listen()											#listen for keyinputs 
 turtle.onkey(move_left, "Left")							#calls move_left when left key is pressed
 turtle.onkey(move_right, "Right")						#calls move_right when right key is pressed 
-trutle.onkey(fire_bullet, "space")
+turtle.onkey(fire_bullet, "space")
 
 
 #Main Game Loop 
