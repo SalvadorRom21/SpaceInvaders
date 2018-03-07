@@ -44,6 +44,25 @@ enemy.speed(0)											#speed as fast since its a game
 enemy.setposition (-200, 250)							#set posotion of the enemy to Q1
 enemyspeed = 2											#setting movement speed of enemy 
 
+#Creating player bullet
+bullet = turtle.Turtle()
+bullet.color("yellow")
+bullet.shape("triangle")
+bullet.penup()
+bullet.speed(0)
+bullet.setheading(90)
+bullet.shapesize(0.5,0.5)
+bullet.hideturtle()
+
+bulletspeed = 20 
+
+#Define bullet state
+#ready - raedy to fire
+#fire - bullet is moving 
+
+bulletstate = "ready"
+
+
 playerspeed = 15
 #setting up player movement
 def move_left():										#moving player left 								
@@ -64,10 +83,20 @@ def move_right():										#moving player right
 
 	player.setx(x)										#setting player position to x 
 
+def fire_bullet();
+	global bulletstate
+
+	x = player.xcor()
+	y = player.ycor() + 10
+	bullet.setposition(x,y)
+	bullet.showturtle()
+
 #create keyboard binding 
 turtle.listen()											#listen for keyinputs 
 turtle.onkey(move_left, "Left")							#calls move_left when left key is pressed
 turtle.onkey(move_right, "Right")						#calls move_right when right key is pressed 
+trutle.onkey(fire_bullet, "space")
+
 
 #Main Game Loop 
 while True:
@@ -76,10 +105,19 @@ while True:
 	x = enemy.xcor()									#getting x position of the enemy
 	x += enemyspeed										#moving the enemy right 
 
-	if x > 280:											#setting boundry of the enemy
-		x = 280											#stop at the endge
-
 	enemy.setx(x)										#set enemy new position to x 
+
+	if enemy.xcor()> 280:								#setting right boundry for enemy
+		y = enemy.ycor()								#getting y coordinate of enemy
+		y -= 40											#lowering the enemy y value by 40
+		enemyspeed *= -1								#multiply 2*(-1) to make it negative
+		enemy.sety(y)									#setting new value for y postition of enemy
+
+	if enemy.xcor()< -280:								#setting left boundry for enemy
+		y = enemy.ycor()
+		y -=40
+		enemyspeed *= -1								#mutipply -2*(-1) to mae it positive
+		enemy.sety(y)
 
 #raw_input swtiched to input for python version 3.6.3
 delay = input ("Press enter to finish.") 				#stops the window from closing
