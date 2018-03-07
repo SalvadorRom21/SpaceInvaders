@@ -4,6 +4,8 @@
 
 import turtle
 import os
+import math
+
 
 #Setting up the window
 window=turtle.Screen()
@@ -32,7 +34,7 @@ player.color("blue")									#set its color
 player.shape("triangle")								#set shape 
 player.penup()											#not drawing line so pen up
 player.speed(0)											#speed as fast as possible
-player.setposition(0,-250)								#set the position of the turtle
+player.setposition(0,-280)								#set the position of the turtle
 player.setheading(90)									#sets oriantation of player turtle to face up
 
 #Creating the enemy turtle 
@@ -94,6 +96,20 @@ def fire_bullet():
 		bullet.setposition(x,y)		
 		bullet.showturtle()								#turle appearss
 
+#detecting if bullet collided with an enemy
+def isCollision(t1, t2):
+	distance = math.sqrt(math.pow(t1.xcor()-t2.xcor(),2) + math.pow(t1.ycor()-t2.ycor(),2))
+	if distance < 15:
+		return True
+	else:
+		return False
+
+
+
+
+
+
+
 #create keyboard binding 
 turtle.listen()											#listen for keyinputs 
 turtle.onkey(move_left, "Left")							#calls move_left when left key is pressed
@@ -129,6 +145,24 @@ while True:
 	if bullet.ycor() > 275:
 		bullet.hideturtle()
 		bulletstate = "ready"
+
+
+#checking for collsiion between bullet and enemy
+	if isCollision (bullet, enemy):
+		bullet.hideturtle()
+		bulletstate= "ready"
+		bullet.setposition(0,-400)
+		enemy.setposition(-200, 250)
+
+	if isCollision(player, enemy):
+		player.hideturtle()
+		enemy.hideturtle()
+		print ("Game Over")
+		break 
+
+
+
+
 #raw_input swtiched to input for python version 3.6.3
 delay = input ("Press enter to finish.") 				#stops the window from closing
 
