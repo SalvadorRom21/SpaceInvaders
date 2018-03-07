@@ -35,6 +35,36 @@ player.speed(0)											#speed as fast as possible
 player.setposition(0,-250)								#set the position of the turtle
 player.setheading(90)									#sets oriantation of player turtle to face up
 
+playerspeed = 15
+#setting up player movement
+def move_left():
+	x = player.xcor()
+	x -= playerspeed
+
+	if x < -280:
+		x = -280
+
+	player.setx(x)
+	
+def move_right():
+	x = player.xcor()
+	x += playerspeed
+	if x > 280:
+		x = 280
+
+	player.setx(x)
+
+
+#create keyboard binding 
+turtle.listen()	
+turtle.onkey(move_left, "Left")
+turtle.onkey(move_right, "Right")
+
+
+
+
+
+
 
 #raw_input swtiched to input for python version 3.6.3
 delay = input ("Press enter to finish.") 
