@@ -33,7 +33,7 @@ player.shape("triangle")								#set shape
 player.penup()											#not drawing line so pen up
 player.speed(0)											#speed as fast as possible
 player.setposition(0,-250)								#set the position of the turtle
-player.setheading(180)									#sets oriantation of player turtle to face up
+player.setheading(90)									#sets oriantation of player turtle to face up
 
 
 #raw_input swtiched to input for python version 3.6.3
