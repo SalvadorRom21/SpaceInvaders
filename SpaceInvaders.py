@@ -36,12 +36,12 @@ player.setposition(0,-250)								#set the position of the turtle
 player.setheading(90)									#sets oriantation of player turtle to face up
 
 #Creating the enemy turtle 
-enemy = trutle.Turtle()									#create enemy Turtle
+enemy = turtle.Turtle()									#create enemy Turtle
 enemy.color("red")										#set color of the enemy
 enemy.shape("circle")									#set shape of the enemy
 enemy.penup()											#not drawing anything so pen up
-enemy.speed(0)											#speed as fast since its a game								#posotion would be in Q1
-enemy.setpostition (-200, 250)							#set posotion of the enemy to Q1
+enemy.speed(0)											#speed as fast since its a game	
+enemy.setposition (-200, 250)							#set posotion of the enemy to Q1
 
 
 playerspeed = 15
