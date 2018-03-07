@@ -7,8 +7,8 @@ import os
 
 #Setting up the window
 window=turtle.Screen()
-window.bgcolor("black")
-window.title("Space Invaders Game")
+window.bgcolor("black")									#background color 
+window.title("Space Invaders Game")						#setting name of window
 
 #Set up to drawing boarder
 border_pen = turtle.Turtle()
@@ -69,11 +69,17 @@ turtle.listen()											#listen for keyinputs
 turtle.onkey(move_left, "Left")							#calls move_left when left key is pressed
 turtle.onkey(move_right, "Right")						#calls move_right when right key is pressed 
 
+#Main Game Loop 
+while True:
 
+	#Moving the enemy 
+	x = enemy.xcor()									#getting x position of the enemy
+	x += enemyspeed										#moving the enemy right 
 
+		if x > 280:										#boundry checking
+			x = 280										#enemy will stop at the edge
 
-
-
+	enemy.setx(x)										#set enemy new position to x 
 
 #raw_input swtiched to input for python version 3.6.3
 delay = input ("Press enter to finish.") 				#stops the window from closing
