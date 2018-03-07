@@ -1,5 +1,37 @@
 #Sapce Invdavers 
-#Python 3.5.2 on linux
-#Setting up the Screen
+#Python 3.6.3 on Ubuntu Linux
+#TheHeartlessOne March 6, 2018
 
-print ("Testing branch workings")
+import turtle
+import os
+
+#Setting up the window
+window=turtle.Screen()
+window.bgcolor("black")
+window.title("Space Invaders Game")
+
+#Set up to drawing boarder
+border_pen = turtle.Turtle()
+border_pen.speed(0)
+border_pen.color("white") 				#set color of the line
+border_pen.penup() 						#lift turlte from board	
+border_pen.setposition(-300,-300)		#set it to position -300,-300
+border_pen.pendown()					#set turtle down to new position
+border_pen.pensize(3)					#set width of the turtle 3 
+
+
+#Draw the Boarder
+for side in range(4):							
+	border_pen.fd(600)					#forward 600 units
+	border_pen.lt(90)					#turn left 90 degrees 
+border_pen.hideturtle()					#hide turtle (could maybe do earlier in program)
+
+
+
+
+
+
+
+#raw_input swtiched to input for python version 3.6.3
+delay = input ("Press enter to finish.") 
+
