@@ -37,28 +37,29 @@ player.setheading(90)									#sets oriantation of player turtle to face up
 
 playerspeed = 15
 #setting up player movement
-def move_left():
-	x = player.xcor()
-	x -= playerspeed
+def move_left():										#moving player left 								
+	x = player.xcor()									#getting player x coordinate
+	x -= playerspeed									#setting player speed x = x-playerspeed
 
-	if x < -280:
+	if x < -280:										#bouncry checking left side
 		x = -280
 
-	player.setx(x)
+	player.setx(x)										#setting player position to x 
 	
-def move_right():
-	x = player.xcor()
-	x += playerspeed
-	if x > 280:
+def move_right():										#moving player right 
+	x = player.xcor()									#getting player x coordinate
+	x += x-playerspeed									#setting player speed x = x + playerspeed
+
+	if x > 280:											#boundry checking for right side						
 		x = 280
 
-	player.setx(x)
+	player.setx(x)										#setting player position to x 
 
 
 #create keyboard binding 
-turtle.listen()	
-turtle.onkey(move_left, "Left")
-turtle.onkey(move_right, "Right")
+turtle.listen()											#listen for keyinputs 
+turtle.onkey(move_left, "Left")							#calls move_left when left key is pressed
+turtle.onkey(move_right, "Right")						#calls move_right when right key is pressed 
 
 
 
