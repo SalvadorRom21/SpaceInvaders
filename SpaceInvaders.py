@@ -191,7 +191,7 @@ while True:
 
 		#checking collision between bullet and enemy
 		if isCollision (bullet, enemy):						#if collision occurs
-			os.system("aplay SFX_Explosion_01.wav&")		#sound for the system
+			os.system("aplay SFX_Explosion_01.wav&")		#& so that sound will not stop program
 			bullet.hideturtle()								#hide the bullet 
 			bulletstate= "ready"							#change bullet stage to ready
 			bullet.setposition(0,-400)						#setting postition of bullet below player
